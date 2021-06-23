@@ -14,7 +14,7 @@ BEGINFILE {
   for (i = 1; i <= NF; i++) {
     if ($i ~ /^[A-Z][a-z].+/) {
       i++; 
-      if (nomeDaView ~ $i) {
+      if (match(nomeDaView, "\\<"$i"\\>")) {
         printf "%s%s", $0, RT;
         break;
       }
